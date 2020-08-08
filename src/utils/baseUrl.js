@@ -1,3 +1,3 @@
-const testEndpoint = 'http://localhost:3010';
+const baseUrl = 'http://localhost:3010';
 
-export default testEndpoint;
+export default baseUrl;
