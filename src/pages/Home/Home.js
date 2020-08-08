@@ -81,11 +81,11 @@ const Home = ({ config, invoices, vendors }) => {
         {
           modalData.isOpen && (
             <React.Fragment>
-              <h1>Due Amount -  {modalData.currentRecord.amountDue}</h1>
+              <h1>Due Amount: ₹{modalData.currentRecord.amountDue}</h1>
               {
                 config.tableConfig.adjustable && modalData.credits > 0 && (
                   <React.Fragment>
-                    <div>Credits Avaiable -  {modalData.credits}</div>
+                    <div>Credits Avaiable:  ₹{modalData.credits}</div>
                     <Checkbox
                       checked={useCredit}
                       onChange={onChange}
@@ -94,7 +94,11 @@ const Home = ({ config, invoices, vendors }) => {
                     </Checkbox>
                     {
                       useCredit && (
-                        <div>Net Payable Amount: {(modalData.currentRecord.amountDue: modalData.credits).toFixed()}</div>
+                        <div>
+                          Net Payable Amount: ₹{
+                            (modalData.currentRecord.amountDue - modalData.credits).toFixed()
+                          }
+                        </div>
                       )
                     }
                   </React.Fragment>
